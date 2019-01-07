@@ -138,7 +138,6 @@ public class ProductServlet extends BaseServlet {
         }
     }
 
-
     /**
      * 商品的详情回显
      *
@@ -166,4 +165,28 @@ public class ProductServlet extends BaseServlet {
         return null;
     }
 
+    /**
+     * 删除商品
+     * @param request
+     * @param response
+     * @return
+     * @throws IOException
+     */
+    public String del(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        //获取cname值
+        String pid = request.getParameter("pid");
+        //调用service保存分类
+        try {
+            productService.delProductById(pid);
+            //操作成功了?
+            //回写1
+            response.getWriter().print("1");
+        } catch (Exception e) {
+            e.printStackTrace();
+            //操作失败了
+            //回写0
+            response.getWriter().print("0");
+        }
+        return null;
+    }
 }

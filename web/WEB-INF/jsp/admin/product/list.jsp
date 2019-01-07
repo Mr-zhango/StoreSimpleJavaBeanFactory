@@ -13,8 +13,10 @@
     <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.easyui.min.js"></script>
     <%--富文本编辑器需要的js--开始--%>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/kindeditor-4.1.10/themes/default/default.css"/>
-    <script charset="utf-8" src="${pageContext.request.contextPath}/resources/kindeditor-4.1.10/kindeditor-all.js"></script>
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/kindeditor-4.1.10/themes/default/default.css"/>
+    <script charset="utf-8"
+            src="${pageContext.request.contextPath}/resources/kindeditor-4.1.10/kindeditor-all.js"></script>
     <script charset="utf-8" src="${pageContext.request.contextPath}/resources/kindeditor-4.1.10/lang/zh-CN.js"></script>
     <%--富文本编辑器需要的js--结束--%>
     <script type="text/javascript">
@@ -23,7 +25,7 @@
                 url: '${ctx}/product?md=findByPage',//商品数据的来源地址
                 columns: [[
                     {field: 'pid', title: '商品id', width: 70},
-                    {field: 'pname', title: '名字', width: 50},
+                    {field: 'pname', title: '商品名称', width: 50},
                     {field: 'shop_price', title: '价格', width: 20},
                     {field: 'pdesc', title: '描述', width: 100},
                     {
@@ -41,7 +43,7 @@
                             return "<img src='${ctx}/" + value + "' width='60px' />"
 
                         }
-                    },{
+                    }, {
                         field: '操作', title: '操作', width: 20, align: "center", formatter: function (value, row, index) {
                             return "<a href='javascript:;' onclick='huixian(\"" + row.pid + "\")'>修改</a>|<a href='javascript:;'  onclick='shanchu(\"" + row.pid + "\")'>删除</a>";
                         }
@@ -54,8 +56,9 @@
                     iconCls: 'icon-add',
                     text: "添加商品",
                     handler: function () {
-                        $("#dd").dialog("open");
-                    }
+                        $("#dd").dialog("open").panel('refresh');
+                    },//关闭缓存
+                    cache: false,
                 }]
 
             });
@@ -106,8 +109,34 @@
             //{cid:1,cname:"手机数码"}
         }
 
-
-        //
+        //删除
+        function shanchu(pid) {
+            //弹出确认框
+            $.messager.confirm('确认对话框', '您确认要删除吗?', function (r) {
+                if (r) {
+                    var url = "${ctx}/product";
+                    var params = "md=del&pid=" + pid;
+                    //发起请求  删除分类
+                    $.post(url, params, function (data) {
+                        //成功返回1
+                        if ("1" == data) {
+                            parent.$.messager.show({
+                                title: '我的消息',
+                                msg: '删除商品成功',
+                                timeout: 5000,
+                                showType: 'slide'
+                            });
+                            //重新加载数据
+                            $("#dg").datagrid("reload");
+                        } else {
+                            //失败0
+                            $.messager.alert('我的消息', '删除商品失败！');
+                        }
+                    });
+                }
+            });
+        }
+        /*//
         //商品详情编辑器
         $(function () {
             //详情编辑器
@@ -127,7 +156,7 @@
                     allowFileManager: true
                 });
             });
-        });
+        });*/
 
 
     </script>
@@ -174,7 +203,7 @@
             <tr>
                 <td>商品描述:</td>
                 <td colspan="3">
-                    <input class="easyui-textbox" name="pdesc" data-options="multiline:true" >
+                    <input class="easyui-textbox" name="pdesc" data-options="multiline:true">
                     <%--<textarea id="editor" style="width:600px;height:400px;visibility:hidden;"></textarea>--%>
                 </td>
             </tr>

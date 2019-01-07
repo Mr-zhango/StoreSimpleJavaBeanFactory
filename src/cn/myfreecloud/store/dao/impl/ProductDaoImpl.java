@@ -89,7 +89,12 @@ public class ProductDaoImpl implements ProductDao {
 				p.getIs_hot(),p.getPdesc(),p.getPflag(),
 				p.getCid());
 	}
-	
-	
 
+
+	@Override
+	public void delProductById(String pid) throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql="DELETE FROM product WHERE pid = ?";
+		qr.update(sql, pid);
+	}
 }

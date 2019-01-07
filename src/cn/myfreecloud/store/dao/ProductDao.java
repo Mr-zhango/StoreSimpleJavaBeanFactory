@@ -23,4 +23,6 @@ public interface ProductDao {
 
     void save(Product product) throws SQLException;
 
+    void delProductById(String pid) throws SQLException;
+
 }

@@ -64,4 +64,9 @@ public class ProductServiceImpl implements ProductService {
 		productDao.save(product);
 	}
 
+	@Override
+	public void delProductById(String pid) throws Exception {
+		productDao.delProductById(pid);
+	}
+
 }

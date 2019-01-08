@@ -129,4 +129,13 @@
         <servlet-name>RotationServlet</servlet-name>
         <url-pattern>/rotation</url-pattern>
     </servlet-mapping>
+    <!--图片验证码servlet-->
+    <servlet>
+        <servlet-name>CheckImgServlet</servlet-name>
+        <servlet-class>cn.myfreecloud.store.web.CodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckImgServlet</servlet-name>
+        <url-pattern>/checkImg</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -11,6 +11,7 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
@@ -127,36 +128,46 @@ public class UserServlet extends BaseServlet {
      * @throws IOException
      */
     public String login(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        //获取账号密码
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        //将账号密码作为参数 传递给service 返回user
         try {
-            User user = userService.login(username, password);
-            //判断user是否为空
-            if (user == null) {
-                //不匹配
-                //request.setAttribute("msg", "账号密码不匹配");
-                //return "noprefix:/login";
-                request.getSession().setAttribute("msg", "账号密码不匹配");
-                return "redirect:" + request.getContextPath() + "/login";
+            //获取账号密码
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
 
-            } else {
-                ////////////////////添加激活逻辑//////////////////////////
-                if (Constant.USER_IS_ACTIVE != user.getState()) {
-                    request.getSession().setAttribute("msg", "用户未激活,请先激活再登录");
+            //验证码
+            String code = request.getParameter("code");
+
+            //将账号密码作为参数 传递给service 返回user
+            HttpSession session = request.getSession();
+
+            // 把object类型的session转化为String类型的session
+            String session_code = (String) session.getAttribute("checkcode_session");
+            //将账号密码作为参数 传递给service 返回user
+            if (session_code.equalsIgnoreCase(code)) {
+                // 验证码正确
+                User user = userService.login(username, password);
+                //判断user是否为空
+                if (user == null) {
+                    //不匹配
+                    request.getSession().setAttribute("msg", "账号密码不匹配");
                     return "redirect:" + request.getContextPath() + "/login";
+                } else {
+                    ////////////////////添加激活逻辑//////////////////////////
+                    if (Constant.USER_IS_ACTIVE != user.getState()) {
+                        request.getSession().setAttribute("msg", "用户未激活,请先激活再登录");
+                        return "redirect:" + request.getContextPath() + "/login";
+                    }
+                    //保存用户状态
+                    request.getSession().setAttribute("user", user);
+                    //重定向首页
+                    String xxxURL = request.getParameter("xxxURL");
+                    if (xxxURL != null) {
+                        return "redirectx:" + xxxURL;
+                    }
+                    return "redirect:" + request.getContextPath() + "/index";
                 }
-                /////////////////////////////////////////////
-                //保存用户状态
-                request.getSession().setAttribute("user", user);
-                //重定向首页
-                String xxxURL = request.getParameter("xxxURL");
-                if (xxxURL != null) {
-                    return "redirectx:" + xxxURL;
-                }
-
-                return "redirect:" + request.getContextPath() + "/index";
+            } else {
+                request.getSession().setAttribute("msg", "验证码错误");
+                return "admin/index";
             }
         } catch (Exception e) {
             e.printStackTrace();

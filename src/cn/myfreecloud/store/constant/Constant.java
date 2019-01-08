@@ -43,4 +43,13 @@ public interface Constant {
      */
     int PRODUCT_OFF = 1;
 
+    /**
+     * 是管理员
+     */
+    int USER_IS_ADMIN=1;
+    /**
+     * 不是管理员
+     */
+    int USER_IS_NOT_ADMIN=0;
+
 }

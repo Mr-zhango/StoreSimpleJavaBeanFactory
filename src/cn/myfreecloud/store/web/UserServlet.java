@@ -167,7 +167,8 @@ public class UserServlet extends BaseServlet {
                 }
             } else {
                 request.getSession().setAttribute("msg", "验证码错误");
-                return "admin/index";
+                //重定向到首页继续登录
+                return "redirect:" + request.getContextPath() + "/login";
             }
         } catch (Exception e) {
             e.printStackTrace();

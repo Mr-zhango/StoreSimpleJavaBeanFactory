@@ -131,20 +131,19 @@
                     <div class="form-group">
                         <label for="username" class="col-sm-2 control-label">用户名</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="username" placeholder="请输入用户名" name="username">
+                            <input type="text" class="form-control" id="username" placeholder="请输入用户名" name="username" required="true">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
                         <div class="col-sm-6">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码"
-                                   name="password">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码" name="password" required="true">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">验证码</label>
+                        <label for="inputPassword4" class="col-sm-2 control-label">验证码</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputPassword3" name="code" placeholder="请输入验证码">
+                            <input type="text" class="form-control" id="inputPassword4" name="code" placeholder="请输入验证码" required="true">
                         </div>
                         <div class="col-sm-3">
                             <td><img src="${pageContext.request.contextPath}/checkImg" onclick="checkCode(this)"/></td>
@@ -195,7 +194,7 @@
     </ul>
 </div>
 <div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-    Copyright &copy; 2005-2016 传智商城 版权所有
+    Copyright &copy; 20014-2019 自由云商城 版权所有
 </div>
 </body>
 </html>

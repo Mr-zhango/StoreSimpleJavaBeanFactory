@@ -67,11 +67,6 @@
 					<img src="${pageContext.request.contextPath}/resources/products/hao/big01.jpg" width="205" height="404" style="display: inline-block;"/>
 				</div>
 				<div class="col-md-10">
-					<div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/resources/products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
-						</a>
-					</div>
 					<c:forEach items="${hots }" var="p">
 						<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
 							<a href="${ctx }/product?md=info&pid=${p.pid}">
@@ -105,11 +100,6 @@
 					<img src="${pageContext.request.contextPath}/resources/products/hao/big01.jpg" width="205" height="404" style="display: inline-block;"/>
 				</div>
 				<div class="col-md-10">
-					<div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/resources/products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
-						</a>
-					</div>
 					<c:forEach items="${news }" var="p">
 						<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
 							<a href="${ctx }/product?md=info&pid=${p.pid}">

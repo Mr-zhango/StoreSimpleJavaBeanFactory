@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>电磁场与电磁波虚拟实验管理员系统</title>
+    <title>自由云商城后台管理系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="${pageContext.request.contextPath }/css/general.css"
           rel="stylesheet" type="text/css"/>
@@ -42,18 +42,15 @@
                 <table>
                     <tr>
                         <td><h2>管理员姓名：</h2></td>
-                        <td><input type="text" name="username"
-                                   style="width:150px;height:30px;font-size:16px;font-family:arial;"/></td>
+                        <td><input type="text" name="username" style="width:150px;height:30px;font-size:16px;font-family:arial;" required="true"/></td>
                     </tr>
                     <tr>
                         <td><h2>管理员密码：</h2></td>
-                        <td><input type="password" name="password"
-                                   style="width:150px;height:30px;font-size:16px;font-family:arial;"/></td>
+                        <td><input type="password" name="password" style="width:150px;height:30px;font-size:16px;font-family:arial;" required="true"/></td>
                     </tr>
                     <tr>
                         <td><h2>请输入验证码:</h2></td>
-                        <td><input type="text" name="code"
-                                   style="width:150px;height:30px;font-size:16px;font-family:arial;"/></td>
+                        <td><input type="text" name="code" style="width:150px;height:30px;font-size:16px;font-family:arial;"/ required="true"></td>
                         <td><img src="${pageContext.request.contextPath}/checkImg" onclick="checkCode(this)"/></td>
                     </tr>
                     <tr>

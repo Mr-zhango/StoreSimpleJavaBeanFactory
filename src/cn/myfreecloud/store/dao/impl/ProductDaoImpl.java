@@ -18,14 +18,14 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public List<Product> findNews() throws SQLException {
 		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
-		String sql="select * from product order by pdate desc limit 9";
+		String sql="select * from product order by pdate desc limit 12";
 		return qr.query(sql, new BeanListHandler<>(Product.class));
 	}
 
 	@Override
 	public List<Product> findHots() throws SQLException {
 		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
-		String sql="select * from product where is_hot=? order by pdate desc   limit 9";
+		String sql="select * from product where is_hot=? order by pdate desc   limit 12";
 		return qr.query(sql, new BeanListHandler<>(Product.class), Constant.PRODUCT_IS_HOT);
 	}
 

@@ -37,12 +37,7 @@
 </head>
 <body>
 <div id="cc" class="easyui-layout" style="width:600px;height:400px;" data-options="fit:true">
-    <div data-options="region:'north'" style="height:50px;">
-        <h2>自由云商城后台管理系统</h2>
-    </div>
-    <div data-options="region:'south'" style="height:50px;">
-        <h3>自由云网络版权所有</h3>
-    </div>
+
     <div data-options="region:'west',title:'菜单管理'" style="width:180px;">
         <%--data-options="fit:true"  自适应大小效果--%>
         <div id="aa" class="easyui-accordion" data-options="fit:true">

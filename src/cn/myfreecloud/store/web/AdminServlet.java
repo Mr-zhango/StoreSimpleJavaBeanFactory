@@ -131,4 +131,5 @@ public class AdminServlet extends BaseServlet {
     public String product_list(HttpServletRequest request, HttpServletResponse response) throws IOException {
         return "admin/product/list";
     }
+
 }

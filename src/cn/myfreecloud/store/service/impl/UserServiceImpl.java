@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 		//将数据保存到数据库
 		userDao.save(user);
 		//发送电子邮件
-		String msg="恭喜你注册成为商城一员,<a href='http://localhost/store/user?md=active&code="+user.getCode()+"' >点我去激活</a>";
+		String msg="恭喜你注册成为商城一员,<a href='http://www.myfreecloud.cn/store/user?md=active&code="+user.getCode()+"' >点我去激活</a>";
 		MailUtil.sendMail(user.getEmail(), msg);
 	}
 	@Override

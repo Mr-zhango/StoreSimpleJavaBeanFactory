@@ -47,7 +47,7 @@
 				<div class="col-md-5">
 					<img src="${pageContext.request.contextPath}/resources/img/header.png" />
 				</div>
-				<div class="col-md-3" style="padding-top:20px">
+				<div class="col-md-3" style="padding-top: 30px">
 					<ol class="list-inline">
 						<c:if test="${empty user }">
 							<li><a href="${ctx }/login.jsp">登录</a></li>

@@ -63,10 +63,10 @@
 				<div class="col-md-12">
 					<h2>热门商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/resources/img/title2.jpg"/></h2>
 				</div>
-				<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
+				<%--<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
 					<img src="${pageContext.request.contextPath}/resources/products/hao/big01.jpg" width="205" height="404" style="display: inline-block;"/>
-				</div>
-				<div class="col-md-10">
+				</div>--%>
+				<div class="col-md-12">
 					<c:forEach items="${hots }" var="p">
 						<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
 							<a href="${ctx }/product?md=info&pid=${p.pid}">
@@ -80,26 +80,22 @@
 				</div>
 			</div>
 			<!--
-            	作者：ci2713@163.com
-            	时间：2015-12-30
             	描述：广告部分
             -->
             <div class="container-fluid">
 				<img src="${pageContext.request.contextPath}/resources/products/hao/ad.jpg" width="100%"/>
 			</div>
 			<!--
-            	作者：ci2713@163.com
-            	时间：2015-12-30
             	描述：商品显示
             -->
 			<div class="container-fluid">
 				<div class="col-md-12">
 					<h2>最新商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/resources/img/title2.jpg"/></h2>
 				</div>
-				<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
+				<%--<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
 					<img src="${pageContext.request.contextPath}/resources/products/hao/big01.jpg" width="205" height="404" style="display: inline-block;"/>
-				</div>
-				<div class="col-md-10">
+				</div>--%>
+				<div class="col-md-12">
 					<c:forEach items="${news }" var="p">
 						<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
 							<a href="${ctx }/product?md=info&pid=${p.pid}">

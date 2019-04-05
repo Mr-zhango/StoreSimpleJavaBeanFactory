@@ -65,14 +65,16 @@ public class ProductServlet extends BaseServlet {
         return null;
     }
 
+
+    @Override
     public String index(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             //负责 首页展示
             //准备数据
-            //准备最新商品 9条
+            //准备最新商品 12条
             System.out.println(request.getRequestURI());
             List<Product> news = productService.findNews();
-            //准备热门商品 9条
+            //准备热门商品 12条
             List<Product> hots = productService.findHots();
             //请求转发一个页面数展示
             request.setAttribute("news", news);

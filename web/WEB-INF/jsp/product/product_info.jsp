@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>	
 		<div class="container">
-			<div class="row">
-				<div style="border: 1px solid #e4e4e4;width:930px;margin-bottom:10px;margin:0 auto;padding:10px;margin-bottom:10px;">
+			<div class="row" class="col-md-12">
+				<div class="col-md-12">
 					<a href="index.jsp">首页&nbsp;&nbsp;&gt;</a>
 				</div>
 
@@ -39,24 +39,24 @@
 						</div>
 					</div>
 				</div>
-				<div class="clear" style="clear:both"></div>
-				<div style="width:950px;margin:0 auto;">
-					<div style="background-color:#d3d3d3;width:930px;padding:10px 10px;margin:10px 0 10px 0;">
+
+				<div class="col-md-12">
+					<div>
 						<strong>商品介绍</strong>
 					</div>
 
-					<div>
-						<img src="${pageContext.request.contextPath}/${p.pimage}">
+                    <div>
+						<img style="opacity: 1;width:400px;height:350px;" title="" class="medium" src="${pageContext.request.contextPath}/${p.pimage}">
 					</div>
 
-					<div style="background-color:#d3d3d3;width:930px;padding:10px 10px;margin:10px 0 10px 0;">
+					<div>
 						<strong>商品描述:</strong>
 					</div>
-					<div style="margin-top:10px;width:900px;">
+					<div style="margin-top:30px;width:900px;">
 						${p.pdesc }
 					</div>
 
-					<div style="background-color:#d3d3d3;width:900px;">
+					<div class="col-md-12" >
 						<table class="table table-bordered">
 							<tbody>
 								<%--<tr class="active">

@@ -25,7 +25,7 @@ public class MailUtil {
 		Authenticator auth = new Authenticator() {
 			public PasswordAuthentication getPasswordAuthentication() {
 				//设置发送人的帐号和密码
-				return new PasswordAuthentication("service", "123");
+				return new PasswordAuthentication("zhangyang", "zhangyang2014");
 			}
 		};
 
@@ -35,7 +35,7 @@ public class MailUtil {
 		Message message = new MimeMessage(session);
 
 		//设置发送者
-		message.setFrom(new InternetAddress("service@317.com"));
+		message.setFrom(new InternetAddress("zhangyang618@126.com"));
 
 		//设置发送方式与接收者
 		message.setRecipient(RecipientType.TO, new InternetAddress(email)); 

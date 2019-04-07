@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
@@ -99,9 +100,18 @@ public class OrderServlet extends BaseServlet {
 	 */
 	public String toPay(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//获取参数
+
+        String name = request.getParameter("name");
+        String address = request.getParameter("address");
+        try {
+            name = new String(name.getBytes("UTF-8"), "UTF-8");
+            address = new String(address.getBytes("UTF-8"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
 		String oid = request.getParameter("oid");
-		String name = request.getParameter("name");
-		String address = request.getParameter("address");
+
 		String telephone = request.getParameter("telephone");
 		
 		//这些属于订单信息 完善

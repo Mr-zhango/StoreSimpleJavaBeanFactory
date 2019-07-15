@@ -109,15 +109,13 @@
 </div>
 
 
-<div class="container"
-     style="width:100%;height:460px;background:#FF2C4C url('${pageContext.request.contextPath}/resources/images/loginbg.jpg') no-repeat;">
+<div class="container">
     <div class="row">
-        <div class="col-md-7">
-            <!--<img src="${pageContext.request.contextPath}/resources/image/login.jpg" width="500" height="330" alt="会员登录" title="会员登录">-->
+        <div class="col-md-6">
+            <!--<img src="<%--${pageContext.request.contextPath}--%>/resources/image/login.jpg" width="500" height="330" alt="会员登录" title="会员登录">-->
         </div>
-
-        <div class="col-md-5">
-            <div style="width:440px;border:1px solid #E7E7E7;padding:20px 0 20px 30px;border-radius:5px;margin-top:60px;background:#fff;">
+        <div class="col-md-6">
+            <div <%--style="width:440px;border:1px solid #E7E7E7;background:#fff;"--%>>
                 <font>会员登录</font>USER LOGIN ${msg }
                 <%
                     session.removeAttribute("msg");
@@ -164,8 +162,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <input type="submit" width="100" value="登录" name="submit" border="0"
-                                   style="background: url('${pageContext.request.contextPath}/resources/images/login.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+                            <input type="submit" width="100" value="登录" name="submit" border="0" style="background: url('${pageContext.request.contextPath}/resources/images/login.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
                                            height:35px;width:100px;color:white;">
                         </div>
                     </div>

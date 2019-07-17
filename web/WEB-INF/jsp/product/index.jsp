@@ -106,5 +106,6 @@
 						</div>
 					</c:forEach>
 				</div>
-			</div>			
+			</div>
+
 <%@ include file="../foot.jsp" %>

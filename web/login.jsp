@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<!doctype html>
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib  prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -54,16 +57,24 @@
 -->
 <div class="container-fluid">
     <div class="col-md-4">
-        <img src="${pageContext.request.contextPath}/resources/img/logo.png"/>
+        <img src="${pageContext.request.contextPath}/resources/img/logo.png" />
     </div>
     <div class="col-md-5">
-        <img src="${pageContext.request.contextPath}/resources/img/header.png"/>
+        <img src="${pageContext.request.contextPath}/resources/img/header.png" />
     </div>
-    <div class="col-md-3" style="padding-top:20px">
+    <div class="col-md-3" style="padding-top: 30px">
         <ol class="list-inline">
-            <li><a href="login.htm">登录</a></li>
-            <li><a href="register.htm">注册</a></li>
-            <li><a href="cart.htm">购物车</a></li>
+            <c:if test="${empty user }">
+                <li><a href="${ctx }/login.jsp">登录</a></li>
+                <li><a href="${ctx }/user?md=registUI">注册</a></li>
+                <li><a href="${ctx }/cart?md=list">购物车</a></li>
+            </c:if>
+            <c:if test="${ not empty user }">
+                <li>${user.name }欢迎您</li>
+                <li><a href="${ctx }/user?md=logout">退出登录</a></li>
+                <li><a href="${ctx }/order?md=findMyOrdersByPage&pageNumber=1">我的订单</a></li>
+                <li><a href="${ctx }/cart?md=list">购物车</a></li>
+            </c:if>
         </ol>
     </div>
 </div>

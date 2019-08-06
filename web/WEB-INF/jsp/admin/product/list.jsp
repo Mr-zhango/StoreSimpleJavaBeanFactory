@@ -13,11 +13,10 @@
     <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.easyui.min.js"></script>
     <%--富文本编辑器需要的js--开始--%>
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/kindeditor-4.1.10/themes/default/default.css"/>
-    <script charset="utf-8"
-            src="${pageContext.request.contextPath}/resources/kindeditor-4.1.10/kindeditor-all.js"></script>
-    <script charset="utf-8" src="${pageContext.request.contextPath}/resources/kindeditor-4.1.10/lang/zh-CN.js"></script>
+    <!-- 富文本编辑器 -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/plugins/kindeditor/themes/default/default.css"/>
+    <script charset="utf-8" src="${pageContext.request.contextPath }/resources/plugins/kindeditor/kindeditor-min.js"></script>
+    <script charset="utf-8" src="${pageContext.request.contextPath }/resources/plugins/kindeditor/lang/zh_CN.js"></script>
     <%--富文本编辑器需要的js--结束--%>
     <script type="text/javascript">
         $(function () {
@@ -136,28 +135,6 @@
                 }
             });
         }
-        /*//
-        //商品详情编辑器
-        $(function () {
-            //详情编辑器
-            KindEditor.ready(function (K) {
-                this.editor
-                    = K.create('textarea[id="editor"]', {
-                    items: ['source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
-                        'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
-                        'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
-                        'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
-                        'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
-                        'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'multiimage',
-                        'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
-                        'anchor', 'link', 'unlink'],
-                    uploadJson: '/images',//指定上传图片的服务器端程序
-                    fileManagerJson: '/images',//指定浏览远程图片的服务器端程序
-                    allowFileManager: true
-                });
-            });
-        });*/
-
 
     </script>
 </head>
@@ -202,10 +179,12 @@
             </tr>
             <tr>
                 <td>商品描述:</td>
-                <td colspan="3">
-                    <input class="easyui-textbox" name="pdesc" data-options="multiline:true">
-                    <%--<textarea id="editor" style="width:600px;height:400px;visibility:hidden;"></textarea>--%>
-                </td>
+                <div class="col-md-10 data editer">
+                    <td colspan="3">
+                        <%--<input class="easyui-textbox" name="pdesc" data-options="multiline:true">--%>
+                        <textarea rows="4" class="form-control" name="pdesc" placeholder="请填写商品描述111"></textarea>
+                    </td>
+                </div>
             </tr>
             <tr style="text-align:center;padding:5px 0">
                 <td colspan="4">

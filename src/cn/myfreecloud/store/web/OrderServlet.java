@@ -170,7 +170,7 @@ public class OrderServlet extends BaseServlet {
 			return "redirectx:"+sb.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
-			request.setAttribute("msg", "订单准备失败");
+			request.setAttribute("msg", "暂未开通支付功能");
 			return "info";
 		}
 	}

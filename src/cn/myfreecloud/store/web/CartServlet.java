@@ -58,6 +58,10 @@ public class CartServlet extends BaseServlet {
         try {
             //获取参数
             String pid = request.getParameter("pid");
+            if(pid == null){
+                String contextPath = request.getContextPath();
+                contextPath.split("/?");
+            }
             int num =Integer.parseInt( request.getParameter("num"));
             Product findbyId = productService.findbyId(pid);
             //封装成一个cartItem对象

@@ -21,6 +21,7 @@ public class AuthFilter implements Filter {
 	/**
 	 * @see Filter#destroy()
 	 */
+	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
 	}
@@ -33,9 +34,18 @@ public class AuthFilter implements Filter {
 		HttpServletRequest req=(HttpServletRequest) request;
 		HttpServletResponse resp=(HttpServletResponse) response;
 		Object user = req.getSession().getAttribute("user");
+
 		StringBuffer path = req.getRequestURL();
 		String queryString = req.getQueryString();
-		path.append("?").append(queryString);
+
+		//保存获取参数
+		String pid = request.getParameter("pid");
+		if(pid != null){
+			int num =Integer.parseInt(request.getParameter("num"));
+			path.append("?").append(queryString);
+			path.append("&pid="+pid+"&num="+num);
+		}
+
 		String encode = URLEncoder.encode(path.toString());
 		if(user==null){
 			resp.sendRedirect(req.getContextPath()+"/login.jsp?xxxURL="+encode);

@@ -29,9 +29,12 @@ import java.util.Map;
  * Servlet implementation class UploadServlet
  */
 public class UploadServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = -2522374944899820924L;
+
     private ProductService productService= BeanFactory.getInstance(ProductService.class);
-	
+
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			//获取表单中提交过来所有参数
@@ -114,6 +117,8 @@ public class UploadServlet extends HttpServlet {
 			file.mkdirs();
 		}
 	}
+
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

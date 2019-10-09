@@ -12,12 +12,6 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/icon.css">
     <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.easyui.min.js"></script>
-    <%--富文本编辑器需要的js--开始--%>
-    <!-- 富文本编辑器 -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/plugins/kindeditor/themes/default/default.css"/>
-    <script charset="utf-8" src="${pageContext.request.contextPath }/resources/plugins/kindeditor/kindeditor-min.js"></script>
-    <script charset="utf-8" src="${pageContext.request.contextPath }/resources/plugins/kindeditor/lang/zh_CN.js"></script>
-    <%--富文本编辑器需要的js--结束--%>
     <script type="text/javascript">
         $(function () {
             $('#dg').datagrid({
